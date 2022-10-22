@@ -3,5 +3,36 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "fnx-lib-ui": {
+      "projectType": "library",
+      "root": "projects/fnx-lib-ui",
+      "sourceRoot": "projects/fnx-lib-ui/src",
+      "prefix": "fnx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/fnx-lib-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fnx-lib-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/fnx-lib-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fnx-lib-ui/src/test.ts",
+            "tsConfig": "projects/fnx-lib-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/fnx-lib-ui/karma.conf.js"
+          }
+        }
+      }
+    }
   }
 }
